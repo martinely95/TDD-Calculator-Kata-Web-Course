@@ -2,6 +2,10 @@ package eu.dreamix;
 
 public class Calculator {
     public int add(String inputString) {
-        return 0;
+        if (inputString.isEmpty()) {
+            return 0;
+        } else {
+            return Integer.parseInt(inputString);
+        }
     }
 }

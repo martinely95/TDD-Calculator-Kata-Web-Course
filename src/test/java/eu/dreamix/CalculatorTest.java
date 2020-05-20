@@ -19,4 +19,17 @@ public class CalculatorTest {
         assertEquals(0, result);
     }
 
+
+    @Test
+    public void add_shouldReturnNumber_whenSingleNumber_isProvided() {
+        // given
+        String inputString = "1";
+        Calculator calculator = new Calculator();
+
+        // when
+        int result = calculator.add(inputString);
+
+        // then
+        assertEquals(1, result);
+    }
 }
