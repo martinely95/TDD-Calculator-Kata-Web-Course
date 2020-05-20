@@ -3,15 +3,23 @@ package eu.dreamix;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CalculatorTest {
 
     private Calculator objectUnderTest;
 
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.println("Hello World TDD version @BeforeClass annotation");
+    }
+
     @Before
     public void setUp() {
         objectUnderTest = new Calculator();
+        System.out.println();
+        System.out.println("Hello World TDD version @Before annotation");
     }
 
     @Test
