@@ -1,3 +1,5 @@
+package eu.dreamix;
+
 import org.junit.Test;
 
 public class CalculatorTest {
