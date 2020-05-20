@@ -57,4 +57,17 @@ public class CalculatorTest {
         // then
         assertEquals(3, result);
     }
+
+    @Test
+    public void add_shouldReturnSum_whenMultipleNumbers_areProvided() {
+        // given
+        String inputString = "1,2,5,6,7";
+        Calculator calculator = new Calculator();
+
+        // when
+        int result = calculator.add(inputString);
+
+        // then
+        assertEquals(21, result);
+    }
 }
