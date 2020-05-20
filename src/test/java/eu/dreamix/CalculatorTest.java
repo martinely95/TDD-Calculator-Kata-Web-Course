@@ -2,11 +2,40 @@ package eu.dreamix;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
+@RunWith(Parameterized.class)
 public class CalculatorTest {
+
+    @Parameters
+    public static Collection<Object[]> generateParameters() {
+        return Arrays.asList(new Object[][]{
+                { "", 0 },
+                { null, 0 },
+                { "1", 1 },
+                { "1,2", 3 },
+                { "1,2,5,6,7", 21 },
+                { "1\n2,5", 8 },
+                { "//;\\n1;2;1;5", 9 },
+        });
+    }
+
+    private final String inputString;
+    private final int expectedResult;
+
+    public CalculatorTest(String inputString, int expectedResult) {
+        this.inputString = inputString;
+        this.expectedResult = expectedResult;
+        System.out.println("Hello World TDD version in constructor");
+    }
 
     private Calculator objectUnderTest;
 
@@ -23,86 +52,14 @@ public class CalculatorTest {
     }
 
     @Test
-    public void add_shouldReturn0_whenEmptyString_isProvided() {
-        // given
-        String inputString = "";
+    public void add_shouldReturnExpectedResult_whenCorrectInput_isProvided() {
+        // given: this.inputString and this.objectUnderTest
 
         // when
         int result = objectUnderTest.add(inputString);
 
         // then
-        assertEquals(0, result);
+        assertEquals(expectedResult, result);
     }
 
-    @Test
-    public void add_shouldReturn0_whenNullString_isProvided() {
-        // given
-        String inputString = null;
-
-        // when
-        int result = objectUnderTest.add(inputString);
-
-        // then
-        assertEquals(0, result);
-    }
-
-    @Test
-    public void add_shouldReturnNumber_whenSingleNumber_isProvided() {
-        // given
-        String inputString = "1";
-
-        // when
-        int result = objectUnderTest.add(inputString);
-
-        // then
-        assertEquals(1, result);
-    }
-
-    @Test
-    public void add_shouldReturnSum_whenTwoNumbers_areProvided() {
-        // given
-        String inputString = "1,2";
-
-        // when
-        int result = objectUnderTest.add(inputString);
-
-        // then
-        assertEquals(3, result);
-    }
-
-    @Test
-    public void add_shouldReturnSum_whenMultipleNumbers_areProvided() {
-        // given
-        String inputString = "1,2,5,6,7";
-
-        // when
-        int result = objectUnderTest.add(inputString);
-
-        // then
-        assertEquals(21, result);
-    }
-
-    @Test
-    public void add_shouldReturnSum_whenMultipleNumbersMixedWithNewLineSeparator_areProvided() {
-        // given
-        String inputString = "1\n2,5";
-
-        // when
-        int result = objectUnderTest.add(inputString);
-
-        // then
-        assertEquals(8, result);
-    }
-
-    @Test
-    public void add_shouldReturnSum_whenMultipleNumbersWithDifferentDelimiter_areProvided() {
-        // given
-        String inputString = "//;\\n1;2;1;5";
-
-        // when
-        int result = objectUnderTest.add(inputString);
-
-        // then
-        assertEquals(9, result);
-    }
 }
