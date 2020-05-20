@@ -5,14 +5,16 @@ import org.junit.Test;
 public class CalculatorTest {
 
     @Test
-    public void newCalculator_shouldBeCreated_whenConstructor_isInvoked() {
+    public void add_shouldExecuteSuccessfully_whenEmptyString_isProvided() {
         // given
+        String inputString = "";
+        Calculator calculator = new Calculator();
 
         // when
-        new Calculator();
+        int result = calculator.add(inputString);
 
         // then
     }
 
-//    public void add_shouldReturn0_whenEmptyString_isProvided() {
+    //add_shouldReturn0_whenEmptyString_isProvided
 }
