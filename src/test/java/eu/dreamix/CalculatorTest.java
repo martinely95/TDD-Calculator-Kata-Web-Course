@@ -32,7 +32,6 @@ public class CalculatorTest {
         assertEquals(0, result);
     }
 
-
     @Test
     public void add_shouldReturnNumber_whenSingleNumber_isProvided() {
         // given
@@ -44,5 +43,18 @@ public class CalculatorTest {
 
         // then
         assertEquals(1, result);
+    }
+
+    @Test
+    public void add_shouldReturnSum_whenTwoNumbers_areProvided() {
+        // given
+        String inputString = "1,2";
+        Calculator calculator = new Calculator();
+
+        // when
+        int result = calculator.add(inputString);
+
+        // then
+        assertEquals(3, result);
     }
 }
