@@ -70,4 +70,17 @@ public class CalculatorTest {
         // then
         assertEquals(21, result);
     }
+
+    @Test
+    public void add_shouldReturnSum_whenMultipleNumbersMixedWithNewLineSeparator_areProvided() {
+        // given
+        String inputString = "1\n2,5";
+        Calculator calculator = new Calculator();
+
+        // when
+        int result = calculator.add(inputString);
+
+        // then
+        assertEquals(8, result);
+    }
 }
