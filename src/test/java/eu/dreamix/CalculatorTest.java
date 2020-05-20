@@ -19,6 +19,19 @@ public class CalculatorTest {
         assertEquals(0, result);
     }
 
+    @Test
+    public void add_shouldReturn0_whenNullString_isProvided() {
+        // given
+        String inputString = null;
+        Calculator calculator = new Calculator();
+
+        // when
+        int result = calculator.add(inputString);
+
+        // then
+        assertEquals(0, result);
+    }
+
 
     @Test
     public void add_shouldReturnNumber_whenSingleNumber_isProvided() {
