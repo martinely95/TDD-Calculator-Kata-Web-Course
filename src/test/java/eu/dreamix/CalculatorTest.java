@@ -83,4 +83,17 @@ public class CalculatorTest {
         // then
         assertEquals(8, result);
     }
+
+    @Test
+    public void add_shouldReturnSum_whenMultipleNumbersWithDifferentDelimiter_areProvided() {
+        // given
+        String inputString = "//;\\n1;2;1;5";
+        Calculator calculator = new Calculator();
+
+        // when
+        int result = calculator.add(inputString);
+
+        // then
+        assertEquals(9, result);
+    }
 }
