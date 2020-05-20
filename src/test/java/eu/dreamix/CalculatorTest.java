@@ -2,15 +2,22 @@ package eu.dreamix;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class CalculatorTest {
+
+    private Calculator objectUnderTest;
+
+    @Before
+    public void setUp() {
+        objectUnderTest = new Calculator();
+    }
 
     @Test
     public void add_shouldReturn0_whenEmptyString_isProvided() {
         // given
         String inputString = "";
-        Calculator objectUnderTest = new Calculator();
 
         // when
         int result = objectUnderTest.add(inputString);
@@ -23,7 +30,6 @@ public class CalculatorTest {
     public void add_shouldReturn0_whenNullString_isProvided() {
         // given
         String inputString = null;
-        Calculator objectUnderTest = new Calculator();
 
         // when
         int result = objectUnderTest.add(inputString);
@@ -36,7 +42,6 @@ public class CalculatorTest {
     public void add_shouldReturnNumber_whenSingleNumber_isProvided() {
         // given
         String inputString = "1";
-        Calculator objectUnderTest = new Calculator();
 
         // when
         int result = objectUnderTest.add(inputString);
@@ -49,7 +54,6 @@ public class CalculatorTest {
     public void add_shouldReturnSum_whenTwoNumbers_areProvided() {
         // given
         String inputString = "1,2";
-        Calculator objectUnderTest = new Calculator();
 
         // when
         int result = objectUnderTest.add(inputString);
@@ -62,7 +66,6 @@ public class CalculatorTest {
     public void add_shouldReturnSum_whenMultipleNumbers_areProvided() {
         // given
         String inputString = "1,2,5,6,7";
-        Calculator objectUnderTest = new Calculator();
 
         // when
         int result = objectUnderTest.add(inputString);
@@ -75,7 +78,6 @@ public class CalculatorTest {
     public void add_shouldReturnSum_whenMultipleNumbersMixedWithNewLineSeparator_areProvided() {
         // given
         String inputString = "1\n2,5";
-        Calculator objectUnderTest = new Calculator();
 
         // when
         int result = objectUnderTest.add(inputString);
@@ -88,7 +90,6 @@ public class CalculatorTest {
     public void add_shouldReturnSum_whenMultipleNumbersWithDifferentDelimiter_areProvided() {
         // given
         String inputString = "//;\\n1;2;1;5";
-        Calculator objectUnderTest = new Calculator();
 
         // when
         int result = objectUnderTest.add(inputString);
